@@ -16,7 +16,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/pip3 /usr/bin/pip
 
 # install dev requirements
-RUN pip install django pytest pytest-django pytest-watch pytest-mock
+RUN pip install twine django pytest pytest-django pytest-watch pytest-mock
 
 # setup user environment
 RUN echo TERM='"'xterm-color'"' >> /etc/environment
