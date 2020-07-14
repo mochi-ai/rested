@@ -1,0 +1,22 @@
+# Set the default behavior to normalize all text files by default
+* text=auto
+
+# Text files to be normalized and converted to LF in the repo
+*.md text
+*.py text
+*.sh text
+*.js text
+*.css text
+*.html text
+Dockerfile text
+
+# Text files to be convert to LF in the repo and CRLF in the working directory
+*.bat eol=crlf
+
+# Text files to be convert to LF in the repo and LF in the working directory
+*.sh eol=lf
+*.bash eol=lf
+
+# Files that are truly binary and should not be modified
+*.png binary
+*.jpg binary

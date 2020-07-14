@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+    dev:
+        build:
+            context: ../
+            dockerfile: stack/dev/Dockerfile
+        hostname: dev
+        volumes:
+            - ../:/rested
+        ports:
+            - '8000:8000'
+
+    redis:
+      image: redis
+      hostname: redis
