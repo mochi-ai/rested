@@ -30,6 +30,7 @@ def main():
     commands.register('manage', commands.manage.Command(), subparsers)
     commands.register('create', commands.create.Command(), subparsers)
     commands.register('worker', commands.worker.Command(), subparsers)
+    commands.register('version', commands.version.Command(), subparsers)
     # # commands.register('sockets', commands.create, subparsers)
     # # commands.register('pipeline', commands.create, subparsers)
 

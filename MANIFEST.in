@@ -1,1 +1,4 @@
 graft rested
+include version.txt
+include LICENSE.md
+include README.md

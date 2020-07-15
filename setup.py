@@ -4,7 +4,6 @@ import sys
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
-
 # use pytest for test command
 class PyTest(TestCommand):
     user_options = [("pytest-args=", "a", "Arguments to pass to pytest")]
@@ -23,7 +22,7 @@ setup(
 
     # info
     name='django-rested',
-    version='0.0.4',
+    version=open('rested/version.txt').read().strip(),
     author='Stephen Quebe',
     author_email='stephen@mochi.ai',
     url='https://github.com/mochi-ai/rested.git',
