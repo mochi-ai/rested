@@ -22,13 +22,14 @@ class PyTest(TestCommand):
 setup(
 
     # info
-    name='rested',
-    version='0.0.1',
+    name='django-rested',
+    version='0.0.4',
     author='Stephen Quebe',
     author_email='stephen@mochi.ai',
     url='https://github.com/mochi-ai/rested.git',
     description='Make creating rest APIs in Django simple.',
     long_description=open('README.md').read(),
+    long_description_content_type="text/markdown",
 
     # include
     packages=find_packages(exclude=["tests"]),
@@ -47,9 +48,6 @@ setup(
         'watchdog==0.9.0',
         'celery==4.4.0',
         'redis==3.3.11'],
-
-    # keep this package private
-    classifiers=['Private :: Do Not Upload'],
 
     # cli scripts
     entry_points={'console_scripts': ['rested = rested.cli:main']},
