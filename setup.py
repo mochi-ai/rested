@@ -43,7 +43,7 @@ setup(
         'ipython==7.11.1',
         'pytest==5.3.1',
         'pytest-django==3.7.0',
-        'pytest-mock==2.0.0',
+        'pytest-mock==3.2.0',
         'watchdog==0.9.0',
         'celery==4.4.0',
         'redis==3.3.11'],

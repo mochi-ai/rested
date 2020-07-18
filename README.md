@@ -37,3 +37,6 @@ To run tests with auto reload and specific test:
 `env PYTHONPATH="/rested/tests" ptw --runner "pytest -s -k test_rested"`
 
 To see print statements of passing tests use the `-s` flag
+
+Note: Errors like this might have a root exception with more detail and may mean you are missing migrations:
+`psycopg2.errors.InvalidCursorName`
