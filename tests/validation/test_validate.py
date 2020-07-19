@@ -59,6 +59,9 @@ class ValidateTests(TestCase):
         errors, valid = check({'a': None}, {"a": v.accepts.null.am.integer})
         assert errors == {} and valid == {'a': None}
 
+        errors, valid = check({'a': 1}, {"a": v.accepts.null.am.integer})
+        assert errors == {} and valid == {'a': 1}
+
         errors, valid = check({'a': None}, {"a": v.accepts.am.integer})
         assert errors == {"a": 'expected_integer'} and valid == {}
 
