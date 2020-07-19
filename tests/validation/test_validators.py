@@ -4,6 +4,7 @@ from rested.validation.utils import Undefined
 from rested.validation.validators.defined import defined
 from rested.validation.validators.nonnull import nonnull
 from rested.validation.validators.integer import integer
+from rested.validation.validators.list import list
 from rested.validation.validators.string import string
 from rested.validation.validators.boolean import boolean
 from rested.validation.validators.email import email
@@ -29,6 +30,11 @@ def test_integer(mocker):
     integer(1, reject=reject)
     with pytest.raises(ValidationError):
         integer(None, reject=reject)
+
+def test_list(mocker):
+    list([], reject=reject)
+    with pytest.raises(ValidationError):
+        list(None, reject=reject)
 
 def test_boolean(mocker):
     boolean(True, reject=reject)
