@@ -72,6 +72,7 @@ def on_user_logged_out(sender, request, user, **kwargs):
     channel_layer = get_channel_layer()
     if not user or not request.session: return
     session_key = request.session.session_key
+    if not channel_layer: return
     async_to_sync(channel_layer.group_send)(f'signals.{user.id}', {
         'type': 'check_session',
         'session_key': session_key
