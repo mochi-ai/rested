@@ -1,12 +1,15 @@
-from rested import models
+from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.crypto import get_random_string
 from django.contrib.auth.hashers import make_password, check_password
 
 
 # user mixin for token authentication
-class TokenUserMixin:
+class TokenUserMixin(models.Model):
     token = models.CharField(max_length=128, null=True)
+
+    class Meta:
+        abstract = True
 
     def assign_token(self):
         length = 48
