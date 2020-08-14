@@ -17,3 +17,5 @@ if ! id "$1" > /dev/null 2>&1; then
     # install in editable mode
     su $1 -c 'pip install --user -e /rested'
 fi
+
+su $1
