@@ -2,7 +2,7 @@ import pytest
 import datetime
 from django.utils import timezone
 from unittest.mock import patch, Mock
-from django.contrib.auth.models import User
+from example.models import Person, User
 from rested.validation import *
 from rested.test import TestCase
 

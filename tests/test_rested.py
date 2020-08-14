@@ -1,10 +1,9 @@
 import datetime
 from django.utils import timezone
 from unittest.mock import patch, Mock
-from django.contrib.auth.models import User
 from pdb import set_trace as debugger
 from rested.test import TestCase, Client
-from example.models import Person
+from example.models import Person, User
 
 
 class PathTests(TestCase):
@@ -127,6 +126,24 @@ class PathTests(TestCase):
 
         self.client.login(username='admin', password='admin')
         response = self.get("/auth/staff")
+        assert response.status_code == 200
+
+    def test_auth_token(self):
+        user = User.objects.filter(username='user').first()
+
+        response = self.get("/auth/authenticated")
+        assert response.status_code == 401
+
+        response = self.get("/auth/authenticated", X_API_KEY='test')
+        assert response.status_code == 401
+
+        token = user.assign_token()
+        user.save()
+
+        response = self.get("/auth/authenticated", X_API_KEY=f'{user.id}:2')
+        assert response.status_code == 401
+
+        response = self.get("/auth/authenticated", X_API_KEY=token)
         assert response.status_code == 200
 
     def test_json_security(self):

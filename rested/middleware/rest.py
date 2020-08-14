@@ -4,7 +4,7 @@ from django.conf import settings
 from django.http import JsonResponse, HttpResponse
 from django.db.models.query import QuerySet
 from functools import lru_cache
-from .errors import AbortException
+from rested.errors import AbortException
 
 
 class RestURLPattern:

@@ -29,8 +29,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rested.middleware.TokenAuthenticationMiddleware',
     'rested.middleware.RestMiddleware',
 ]
+AUTH_USER_MODEL = 'example.User'
 CSRF_FAILURE_VIEW = 'rested.patterns.handler_csrf'
 ROOT_URLCONF = 'example.urls'
 WSGI_APPLICATION = 'example.wsgi.application'
