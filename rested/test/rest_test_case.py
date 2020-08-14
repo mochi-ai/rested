@@ -4,30 +4,30 @@ from rested import json
 
 class RestTestCase(TestCase):
 
-    def get(self, url, params=None):
+    def get(self, url, params=None, **extra):
         params = '?' + urlencode(params) if params else ''
-        response = self.client.get(url + params)
+        response = self.client.get(url + params, **extra)
         response.data = response.json()
         response.status = response.status_code
         return response
 
-    def put(self, url, data=None, params=None):
+    def put(self, url, data=None, params=None, **extra):
         params = '?' + urlencode(params) if params else ''
-        response = self.client.put(url + params, json.dumps(data), content_type="application/json")
+        response = self.client.put(url + params, json.dumps(data), content_type="application/json", **extra)
         response.data = response.json()
         response.status = response.status_code
         return response
 
-    def post(self, url, data=None, params=None):
+    def post(self, url, data=None, params=None, **extra):
         params = '?' + urlencode(params) if params else ''
-        response = self.client.post(url + params, json.dumps(data), content_type="application/json")
+        response = self.client.post(url + params, json.dumps(data), content_type="application/json", **extra)
         response.data = response.json()
         response.status = response.status_code
         return response
 
-    def delete(self, url, params=None):
+    def delete(self, url, params=None, **extra):
         params = '?' + urlencode(params) if params else ''
-        response = self.client.delete(url + params)
+        response = self.client.delete(url + params, **extra)
         response.data = response.json()
         response.status = response.status_code
         return response
