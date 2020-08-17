@@ -134,16 +134,16 @@ class PathTests(TestCase):
         response = self.get("/auth/authenticated")
         assert response.status_code == 401
 
-        response = self.get("/auth/authenticated", X_API_KEY='test')
+        response = self.get("/auth/authenticated", HTTP_X_API_KEY='test')
         assert response.status_code == 401
 
         token = user.assign_token()
         user.save()
 
-        response = self.get("/auth/authenticated", X_API_KEY=f'{user.id}:2')
+        response = self.get("/auth/authenticated", HTTP_X_API_KEY=f'{user.id}:2')
         assert response.status_code == 401
 
-        response = self.get("/auth/authenticated", X_API_KEY=token)
+        response = self.get("/auth/authenticated", HTTP_X_API_KEY=token)
         assert response.status_code == 200
 
     def test_json_security(self):

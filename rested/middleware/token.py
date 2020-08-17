@@ -53,4 +53,4 @@ class TokenAuthenticationMiddleware:
 
     @staticmethod
     def get_token(request):
-        return str(request.META.get('X_API_KEY', '')).strip()
+        return str(request.META.get('HTTP_X_API_KEY', '')).strip()

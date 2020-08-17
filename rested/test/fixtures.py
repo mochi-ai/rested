@@ -16,7 +16,7 @@ def authenticated_rest_client(autouse=True):
         def inject_api_token(f):
             @wraps(f)
             def wrapped(*args, **kwargs):
-                kwargs['X_API_KEY'] = user._token
+                kwargs['HTTP_X_API_KEY'] = user._token
                 return f(*args, **kwargs)
             return wrapped
 
