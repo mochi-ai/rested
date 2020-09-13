@@ -36,7 +36,7 @@ setup(
 
     # public dependencies
     install_requires=[
-        'django==3.0',
+        'django==3.1',
         'channels==2.4.0',
         'channels-redis==2.4.1',
         'django-extensions==2.2.6',
